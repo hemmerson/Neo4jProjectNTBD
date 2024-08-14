@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}" xmlns:sec="http://www.w3.org/1999/xhtml">
+
+<head th:replace="~{fragments/head :: head(~{::title}, ~{})}">
+    <title>Lista de Languages</title>
+</head>
+
+<body>
+<main>
+    <div class="container">
+        <h1>Lista de Languages</h1>
+        <hr>
+        <a class="btn btn-outline-dark" th:href="@{form}">Novo</a>
+        <div>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Language_Id</th>
+                    <th>Nome</th>
+                    <th>Last Update</th>
+                    <th colspan="2">#Links</th>
+                </tr>
+                </thead>
+                <tr th:each="l : ${language}">
+
+                    <td th:text="${l.id}"></td>
+                    <td th:text="${l.language_id}"></td>
+                    <td th:text="${l.name}"></td>
+                    <td th:text="${l.last_update}"></td>
+                    <td>
+                        <a class="btn btn-outline-secondary" th:href="@{/language/edit/{id} (id=${l.id})}">Editar</a>
+                    </td>
+                    <td>
+                        <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"
+                           class="btn btn-outline-danger" th:href="@{/language/remove/{id}(id=${l.id})}">Excluir</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</main>
+</body>
+</html>

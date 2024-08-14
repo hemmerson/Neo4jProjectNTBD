@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+
+<html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}">
+
+<head th:replace="~{fragments/head :: head(~{::title},~{})}">
+    <title>Cadastro de Language</title>
+</head>
+
+<body>
+<main>
+    <div class="container h-custom">
+        <h1 >Cadastro de Language</h1>
+        <hr>
+        <div class="row d-flex justify-content-center align-items-center h-100 mb-5">
+            <!--/*@thymesVar id="language" type="com.hemmersonrosa.neo4jprojectntbd.entity.Language"*/-->
+            <form class="row g-3 needs-validation" novalidate
+                  th:action="${language.getId() == null} ? @{/language/save} : @{/language/update}"
+                  th:object="${language}" method="post">
+                <!--                <form th:action="|/${pessoa.nomeClasse()}/${pessoa.id == 0 ? 'save' : 'update'}|"-->
+                <!--                      th:object="${pessoa}" method="post">-->
+
+                <input class="form-control" type="hidden" th:field="*{id}">
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="language_id" type="text" th:field="*{language_id}" placeholder="Language_id"
+                               th:errorclass="is-invalid" required>
+                        <label for="language_id">Language_id</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('language_id')}" th:errors="*{language_id}"></div>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="name" type="text" th:field="*{name}" placeholder="Nome"
+                               th:errorclass="is-invalid" required>
+                        <label for="name">Nome</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
+
+                    </div>
+                </div>
+
+                <hr/>
+
+                <button type="submit" class="btn btn-outline-primary btn-lg">Enviar</button>
+                <a th:href="|/language/list|" class="btn btn-secondary btn-lg">Lista</a>
+            </form>
+        </div>
+    </div>
+
+</main>
+</body>
+</html>
