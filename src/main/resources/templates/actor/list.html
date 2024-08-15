@@ -3,13 +3,13 @@
 <html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head th:replace="~{fragments/head :: head(~{::title}, ~{})}">
-    <title>Lista de Languages</title>
+    <title>Lista de Actors</title>
 </head>
 
 <body>
 <main>
     <div class="container">
-        <h1>Lista de Languages</h1>
+        <h1>Lista de Actors</h1>
         <hr>
         <a class="btn btn-outline-dark" th:href="@{form}">Novo</a>
         <div>
@@ -17,24 +17,26 @@
                 <thead>
                 <tr>
                     <th>Id</th>
-                    <th>Language_Id</th>
-                    <th>Nome</th>
+                    <th>Actor_Id</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
                     <th>Last Update</th>
                     <th colspan="2">#Links</th>
                 </tr>
                 </thead>
-                <tr th:each="l : ${language}">
+                <tr th:each="a : ${actor}">
 
-                    <td th:text="${l.id}"></td>
-                    <td th:text="${l.language_id}"></td>
-                    <td th:text="${l.name}"></td>
-                    <td th:text="${l.last_update}"></td>
+                    <td th:text="${a.id}"></td>
+                    <td th:text="${a.actor_id}"></td>
+                    <td th:text="${a.first_name}"></td>
+                    <td th:text="${a.last_name}"></td>
+                    <td th:text="${a.last_update}"></td>
                     <td>
-                        <a class="btn btn-outline-secondary" th:href="@{/language/edit/{id} (id=${l.id})}">Editar</a>
+                        <a class="btn btn-outline-secondary" th:href="@{/actor/edit/{id} (id=${a.id})}">Editar</a>
                     </td>
                     <td>
                         <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"
-                           class="btn btn-outline-danger" th:href="@{/language/remove/{id}(id=${l.id})}">Excluir</a>
+                           class="btn btn-outline-danger" th:href="@{/actor/remove/{id}(id=${a.id})}">Excluir</a>
                     </td>
                 </tr>
             </table>

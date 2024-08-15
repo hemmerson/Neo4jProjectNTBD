@@ -3,46 +3,50 @@
 <html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}">
 
 <head th:replace="~{fragments/head :: head(~{::title},~{})}">
-    <title>Cadastro de Actor</title>
+    <title>Atualização de Actor</title>
 </head>
 
 <body>
 <main>
     <div class="container h-custom">
-        <h1 >Cadastro de Actor</h1>
+        <h1>Atualização de Actor</h1>
         <hr>
         <div class="row d-flex justify-content-center align-items-center h-100 mb-5">
             <form class="row g-3 needs-validation" novalidate
-                  th:action="@{/actor/save}"
+                  th:action="@{/actor/update}"
                   th:object="${actor}" method="post">
 
                 <input class="form-control" type="hidden" th:field="*{id}">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="form-floating">
-                        <input class="form-control" id="actor_id" type="text" th:field="*{actor_id}" placeholder="actor_id"
+                        <input class="form-control" id="actor_id" type="text" th:field="*{actor_id}"
+                               placeholder="actor_id"
                                th:errorclass="is-invalid" required>
                         <label for="actor_id">Actor_id</label>
-                        <div class="invalid-feedback" th:if="${#fields.hasErrors('actor_id')}" th:errors="*{actor_id}"></div>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('actor_id')}"
+                             th:errors="*{actor_id}"></div>
 
                     </div>
                 </div>
-                <div class="col-md-12">
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <input class="form-control" id="first_name" type="text" th:field="*{first_name}" placeholder="First Name"
-                                   th:errorclass="is-invalid" required>
-                            <label for="first_name">First Name</label>
-                            <div class="invalid-feedback" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></div>
-                        </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="first_name" type="text" th:field="*{first_name}"
+                               placeholder="First Name"
+                               th:errorclass="is-invalid" required>
+                        <label for="first_name">First Name</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('first_name')}"
+                             th:errors="*{first_name}"></div>
                     </div>
+                </div>
 
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <input class="form-control" id="last_name" type="text" th:field="*{last_name}" placeholder="Last Name"
-                                   th:errorclass="is-invalid" required>
-                            <label for="last_name">Last Name</label>
-                            <div class="invalid-feedback" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></div>
-                        </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="last_name" type="text" th:field="*{last_name}"
+                               placeholder="Last Name"
+                               th:errorclass="is-invalid" required>
+                        <label for="last_name">Last Name</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('last_name')}"
+                             th:errors="*{last_name}"></div>
                     </div>
                 </div>
 

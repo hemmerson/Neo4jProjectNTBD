@@ -3,51 +3,117 @@
 <html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}">
 
 <head th:replace="~{fragments/head :: head(~{::title},~{})}">
-    <title>Cadastro de Actor</title>
+    <title>Cadastro de Film</title>
 </head>
 
 <body>
 <main>
     <div class="container h-custom">
-        <h1 >Cadastro de Actor</h1>
+        <h1>Cadastro de Film</h1>
         <hr>
         <div class="row d-flex justify-content-center align-items-center h-100 mb-5">
             <form class="row g-3 needs-validation" novalidate
-                  th:action="@{/actor/save}"
-                  th:object="${actor}" method="post">
+                  th:action="@{/film/save}"
+                  th:object="${film}" method="post">
 
                 <input class="form-control" type="hidden" th:field="*{id}">
-                <div class="col-md-8">
+                <div class="col-md-6">
                     <div class="form-floating">
-                        <input class="form-control" id="actor_id" type="text" th:field="*{actor_id}" placeholder="actor_id"
+                        <input class="form-control" id="film_id" type="text" th:field="*{film_id}" placeholder="Film Id"
                                th:errorclass="is-invalid" required>
-                        <label for="actor_id">Actor_id</label>
-                        <div class="invalid-feedback" th:if="${#fields.hasErrors('actor_id')}" th:errors="*{actor_id}"></div>
+                        <label for="film_id">Film_id</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('film_id')}"
+                             th:errors="*{film_id}"></div>
 
                     </div>
                 </div>
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <input class="form-control" id="first_name" type="text" th:field="*{first_name}" placeholder="First Name"
-                                   th:errorclass="is-invalid" required>
-                            <label for="first_name">First Name</label>
-                            <div class="invalid-feedback" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></div>
-                        </div>
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="title" type="text" th:field="*{title}" placeholder="Title"
+                               th:errorclass="is-invalid" required>
+                        <label for="title">Title</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('title')}" th:errors="*{title}"></div>
                     </div>
+                </div>
 
-                    <div class="col-md-6">
-                        <div class="form-floating">
-                            <input class="form-control" id="last_name" type="text" th:field="*{last_name}" placeholder="Last Name"
-                                   th:errorclass="is-invalid" required>
-                            <label for="last_name">Last Name</label>
-                            <div class="invalid-feedback" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></div>
-                        </div>
+                <div class="col-md-12">
+                    <div class="form-floating">
+                            <textarea class="form-control" id="description" th:field="*{description}"
+                                      placeholder="Description" aria-multiline="true"
+                                      th:errorclass="is-invalid" required></textarea>
+                        <label for="description">Description</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('description')}"
+                             th:errors="*{description}"></div>
                     </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="rating" type="text" th:field="*{rating}" placeholder="Rating"
+                               th:errorclass="is-invalid" required>
+                        <label for="rating">Rating</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('rating')}" th:errors="*{rating}"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="length" type="number" th:field="*{length}" placeholder="Length"
+                               th:errorclass="is-invalid" required>
+                        <label for="length">Length</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('length')}" th:errors="*{length}"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="release_year" type="number" th:field="*{release_year}" placeholder="Release Year"
+                               th:errorclass="is-invalid" required>
+                        <label for="release_year">Release Year</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('release_year')}" th:errors="*{release_year}"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="special_features" type="text" th:field="*{special_features}" placeholder="Special Features"
+                               th:errorclass="is-invalid" required>
+                        <label for="special_features">Special Features</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('special_features')}" th:errors="*{special_features}"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="rental_duration" type="number" th:field="*{rental_duration}" placeholder="Rental Duration"
+                               th:errorclass="is-invalid" required>
+                        <label for="rental_duration">Rental Duration</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('rental_duration')}" th:errors="*{rental_duration}"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="rental_rate" type="number" step="0.01" th:field="*{rental_rate}" placeholder="Rental Rate"
+                               th:errorclass="is-invalid" required>
+                        <label for="rental_rate">Rental Rate</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('rental_rate')}" th:errors="*{rental_rate}"></div>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-floating">
+                        <input class="form-control" id="replacement_cost" type="number" step="0.01" th:field="*{replacement_cost}" placeholder="Replacement Cost"
+                               th:errorclass="is-invalid" required>
+                        <label for="replacement_cost">Replacement Cost</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('replacement_cost')}" th:errors="*{replacement_cost}"></div>
+                    </div>
+                </div>
 
                 <hr/>
 
                 <button type="submit" class="btn btn-outline-primary btn-lg">Enviar</button>
-                <a th:href="|/actor/list|" class="btn btn-secondary btn-lg">Lista</a>
+                <a th:href="|/film/list|" class="btn btn-secondary btn-lg">Lista</a>
             </form>
         </div>
     </div>

@@ -3,40 +3,52 @@
 <html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}" xmlns:sec="http://www.w3.org/1999/xhtml">
 
 <head th:replace="~{fragments/head :: head(~{::title}, ~{})}">
-    <title>Lista de Actors</title>
+    <title>Lista de Films</title>
 </head>
 
 <body>
 <main>
     <div class="container">
-        <h1>Lista de Actors</h1>
+        <h1>Lista de Filmss</h1>
         <hr>
         <a class="btn btn-outline-dark" th:href="@{form}">Novo</a>
         <div>
             <table class="table table-striped">
-                <thead>
+                <thead class="table-header table-striped-columns">
                 <tr>
                     <th>Id</th>
-                    <th>Actor_Id</th>
-                    <th>First Name</th>
-                    <th>Last Name</th>
-                    <th>Last Update</th>
+                    <th>Film_Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Rating</th>
+                    <th>Release Year</th>
+                    <th>Length</th>
+                    <th>Special Features</th>
+                    <th>Rental Duration</th>
+                    <th>Rental Rate</th>
+                    <th>Replacement Cost</th>
                     <th colspan="2">#Links</th>
                 </tr>
                 </thead>
-                <tr th:each="a : ${actor}">
+                <tr th:each="f : ${film}">
 
-                    <td th:text="${a.id}"></td>
-                    <td th:text="${a.actor_id}"></td>
-                    <td th:text="${a.first_name}"></td>
-                    <td th:text="${a.last_name}"></td>
-                    <td th:text="${a.last_update}"></td>
+                    <td th:text="${f.id}"></td>
+                    <td th:text="${f.film_id}"></td>
+                    <td th:text="${f.title}"></td>
+                    <td th:text="${f.description}"></td>
+                    <td th:text="${f.rating}"></td>
+                    <td th:text="${f.release_year}"></td>
+                    <td th:text="${f.length}"></td>
+                    <td th:text="${f.special_features}"></td>
+                    <td th:text="${f.rental_duration}"></td>
+                    <td th:text="${f.rental_rate}"></td>
+                    <td th:text="${f.replacement_cost}"></td>
                     <td>
-                        <a class="btn btn-outline-secondary" th:href="@{/actor/edit/{id} (id=${a.id})}">Editar</a>
+                        <a class="btn btn-outline-secondary" th:href="@{/film/edit/{id} (id=${f.id})}">Editar</a>
                     </td>
                     <td>
                         <a onclick="return window.confirm('Tem certeza que deseja excluir este registro?')"
-                           class="btn btn-outline-danger" th:href="@{/actor/remove/{id}(id=${a.id})}">Excluir</a>
+                           class="btn btn-outline-danger" th:href="@{/film/remove/{id}(id=${f.id})}">Excluir</a>
                     </td>
                 </tr>
             </table>

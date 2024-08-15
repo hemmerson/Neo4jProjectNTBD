@@ -6,8 +6,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication
 public class Neo4jProjectNtbdApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(Neo4jProjectNtbdApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(Neo4jProjectNtbdApplication.class, args);
+    }
 
 }

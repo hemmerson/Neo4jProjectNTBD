@@ -3,17 +3,17 @@
 <html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}">
 
 <head th:replace="~{fragments/head :: head(~{::title},~{})}">
-    <title>Cadastro de Film</title>
+    <title>Atualização de Film</title>
 </head>
 
 <body>
 <main>
     <div class="container h-custom">
-        <h1>Cadastro de Film</h1>
+        <h1>Atualização de Film</h1>
         <hr>
         <div class="row d-flex justify-content-center align-items-center h-100 mb-5">
             <form class="row g-3 needs-validation" novalidate
-                  th:action="@{/film/save}"
+                  th:action="@{/film/update}"
                   th:object="${film}" method="post">
 
                 <input class="form-control" type="hidden" th:field="*{id}">

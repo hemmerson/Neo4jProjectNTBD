@@ -3,46 +3,51 @@
 <html th:replace="~{fragments/layout :: layout(~{::head},~{::main})}">
 
 <head th:replace="~{fragments/head :: head(~{::title},~{})}">
-    <title>Cadastro de Language</title>
+    <title>Cadastro de Actor</title>
 </head>
 
 <body>
 <main>
     <div class="container h-custom">
-        <h1 >Cadastro de Language</h1>
+        <h1 >Cadastro de Actor</h1>
         <hr>
         <div class="row d-flex justify-content-center align-items-center h-100 mb-5">
-            <!--/*@thymesVar id="language" type="com.hemmersonrosa.neo4jprojectntbd.entity.Language"*/-->
             <form class="row g-3 needs-validation" novalidate
-                  th:action="@{/language/save}"
-                  th:object="${language}" method="post">
-                <!--                <form th:action="|/${pessoa.nomeClasse()}/${pessoa.id == 0 ? 'save' : 'update'}|"-->
-                <!--                      th:object="${pessoa}" method="post">-->
+                  th:action="@{/actor/save}"
+                  th:object="${actor}" method="post">
 
                 <input class="form-control" type="hidden" th:field="*{id}">
-                <div class="col-md-6">
+                <div class="col-md-8">
                     <div class="form-floating">
-                        <input class="form-control" id="language_id" type="text" th:field="*{language_id}" placeholder="Language_id"
+                        <input class="form-control" id="actor_id" type="text" th:field="*{actor_id}" placeholder="Actor id"
                                th:errorclass="is-invalid" required>
-                        <label for="language_id">Language_id</label>
-                        <div class="invalid-feedback" th:if="${#fields.hasErrors('language_id')}" th:errors="*{language_id}"></div>
+                        <label for="actor_id">Actor id</label>
+                        <div class="invalid-feedback" th:if="${#fields.hasErrors('actor_id')}" th:errors="*{actor_id}"></div>
 
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-floating">
-                        <input class="form-control" id="name" type="text" th:field="*{name}" placeholder="Nome"
-                               th:errorclass="is-invalid" required>
-                        <label for="name">Nome</label>
-                        <div class="invalid-feedback" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></div>
-
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input class="form-control" id="first_name" type="text" th:field="*{first_name}" placeholder="First Name"
+                                   th:errorclass="is-invalid" required>
+                            <label for="first_name">First Name</label>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('first_name')}" th:errors="*{first_name}"></div>
+                        </div>
                     </div>
-                </div>
+
+                    <div class="col-md-6">
+                        <div class="form-floating">
+                            <input class="form-control" id="last_name" type="text" th:field="*{last_name}" placeholder="Last Name"
+                                   th:errorclass="is-invalid" required>
+                            <label for="last_name">Last Name</label>
+                            <div class="invalid-feedback" th:if="${#fields.hasErrors('last_name')}" th:errors="*{last_name}"></div>
+                        </div>
+                    </div>
 
                 <hr/>
 
                 <button type="submit" class="btn btn-outline-primary btn-lg">Enviar</button>
-                <a th:href="|/language/list|" class="btn btn-secondary btn-lg">Lista</a>
+                <a th:href="|/actor/list|" class="btn btn-secondary btn-lg">Lista</a>
             </form>
         </div>
     </div>

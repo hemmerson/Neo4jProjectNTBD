@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+<header th:fragment="header" class="container h-custom" xmlns:sec="http://www.w3.org/1999/xhtml">
+    <nav class="navbar navbar-expand-xxl navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="/">Aplicação Integração NEO4J |</a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                </ul>
+
+                <div class="nav-item dropdown">
+                    <button class="btn btn-dark btn-lg dropdown-toggle" id="dropdown01" data-bs-toggle="dropdown"
+                            aria-expanded="false">Languages</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown01">
+                        <li><a class="dropdown-item" th:href="@{/language/form}">Cadastrar</a></li>
+                        <li><a class="dropdown-item" th:href="@{/language/list}">Listar</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item dropdown">
+                    <button class="btn btn-dark btn-lg dropdown-toggle" id="dropdown02" data-bs-toggle="dropdown"
+                            aria-expanded="false">Actor</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown02">
+                        <li><a class="dropdown-item" th:href="@{/actor/form}">Cadastrar</a></li>
+                        <li><a class="dropdown-item" th:href="@{/actor/list}">Listar</a></li>
+                    </ul>
+                </div>
+                <div class="nav-item dropdown">
+                    <button class="btn btn-dark btn-lg dropdown-toggle" id="dropdown03" data-bs-toggle="dropdown"
+                            aria-expanded="false">Film</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdown03">
+                        <li><a class="dropdown-item" th:href="@{/film/form}" >Cadastrar</a></li>
+                        <li><a class="dropdown-item" th:href="@{/film/list}" >Listar</a></li>
+                    </ul>
+                </div>
+                <!--                <form th:action="@{/logout}" method="post"><button class="btn btn-dark btn-lg" type="submit">Sair</button></form>-->
+            </div>
+        </div>
+    </nav>
+</header>
